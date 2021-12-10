@@ -4,9 +4,9 @@ const { createUser, validateName, validateCPF } = require('../services/userServi
 async function createNewUser(req, res, next) {
   try {
     const { cpf, name } = req.body;
-    validateName(name)
-    validateCPF(cpf)
-
+    validateName(name);
+    await validateCPF(cpf);
+    
     const verifyAndCreate = await createUser(cpf, name);
     return res.status(StatusCodes.CREATED).json(verifyAndCreate);
   } catch (err) {

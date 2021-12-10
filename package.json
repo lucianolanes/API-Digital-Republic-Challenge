@@ -30,6 +30,7 @@
     "http-status-codes": "^2.1.4",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
-    "node-simple-validator": "^2.0.0"
+    "node-simple-validator": "^2.0.0",
+    "randomstring": "^1.2.1"
   }
 }
