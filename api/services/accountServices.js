@@ -2,7 +2,7 @@ const { isCpf } = require('node-simple-validator');
 const randomString = require('randomstring');
 const ValidationException = require('../exceptions/validationException');
 const { StatusCodes } = require('http-status-codes');
-const { createNewUser, findByCPF } = require('../models/usersModels');
+const { createNew, findByCPF } = require('../models/accountModels');
 
 function validateName(name) {
   if (!name) throw new ValidationException('É necessário informar o nome.', StatusCodes.BAD_REQUEST);
@@ -19,19 +19,19 @@ async function validateCPF(cpf) {
   if (exists) throw new ValidationException('CPF existente no banco de dados.', StatusCodes.CONFLICT);
 }
 
-async function createUser(cpf, name) {
+async function createAcc(cpf, name) {
   const password = randomString.generate({
     length: 8,
     capitalization: 'uppercase'
   });
 
-  await createNewUser(cpf, name, password);
+  await createNew(cpf, name, password);
   
   return { cpf, name, password };
 }
 
 module.exports = {
-  createUser,
+  createAcc,
   validateCPF,
   validateName,
 }

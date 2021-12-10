@@ -1,5 +1,5 @@
 const express = require('express');
-const usersRouter = require('./api/routers/userRouters');
+const accountRouters = require('./api/routers/accountRouters');
 const errorMiddleware = require('./api/middlewares/errorMiddleware');
 
 require('dotenv').config();
@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/user', usersRouter);
+app.use('/account', accountRouters);
 
 app.use(errorMiddleware);
 

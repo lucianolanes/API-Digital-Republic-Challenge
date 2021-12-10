@@ -1,13 +1,13 @@
 const { StatusCodes } = require('http-status-codes');
-const { createUser, validateName, validateCPF } = require('../services/userServices');
+const { createAcc, validateName, validateCPF } = require('../services/accountServices');
 
-async function createNewUser(req, res, next) {
+async function createNewAccount(req, res, next) {
   try {
     const { cpf, name } = req.body;
     validateName(name);
     await validateCPF(cpf);
     
-    const verifyAndCreate = await createUser(cpf, name);
+    const verifyAndCreate = await createAcc(cpf, name);
     return res.status(StatusCodes.CREATED).json(verifyAndCreate);
   } catch (err) {
     next(err);
@@ -15,5 +15,5 @@ async function createNewUser(req, res, next) {
 }
 
 module.exports = {
-  createNewUser,
+  createNewAccount,
 }

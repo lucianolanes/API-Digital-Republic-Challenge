@@ -1,7 +1,7 @@
 const connection = require('./connection');
 
 
-async function createNewUser(cpf, name, password) {
+async function createNew(cpf, name, password) {
   return connection.execute(
     `INSERT INTO users (cpf, name, password) VALUES ('${cpf}', '${name}', '${password}');`
   );
@@ -13,6 +13,6 @@ async function findByCPF(cpf) {
 };
 
 module.exports = {
-  createNewUser,
+  createNew,
   findByCPF,
 };
