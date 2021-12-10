@@ -16,7 +16,7 @@ async function validateCPF(cpf) {
 
   const exists = await findByCPF(cpf);
   
-  if (exists) throw new ValidationException('CPF existente no banco de dados', StatusCodes.CONFLICT);
+  if (exists) throw new ValidationException('CPF existente no banco de dados.', StatusCodes.CONFLICT);
 }
 
 async function createUser(cpf, name) {
