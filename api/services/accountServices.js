@@ -2,7 +2,7 @@ const randomString = require('randomstring');
 const { generateJWT } = require('./JWTServices');
 const { StatusCodes } = require('http-status-codes');
 const ValidationException = require('../exceptions/validationException');
-const { createNew, findByCredentials } = require('../models/accountModels');
+const { createNew, deposit, findByCPF, findByCredentials } = require('../models/accountModels');
 
 async function createAcc(cpf, name) {
   const password = randomString.generate({
@@ -22,7 +22,17 @@ async function accountLogin(cpf, password) {
   return generateJWT(result.id, result.name);
 }
 
+async function depositAmount(cpf, amount) {
+  const account = await findByCPF(cpf);
+  if (!account) throw new ValidationException('Conta inexistente', StatusCodes.NOT_FOUND);
+
+  const { balance } = account;
+  const newAmount = amount + Number(balance);
+  return deposit(cpf, newAmount);
+}
+
 module.exports = {
-  createAcc,
   accountLogin,
+  createAcc,
+  depositAmount,
 }

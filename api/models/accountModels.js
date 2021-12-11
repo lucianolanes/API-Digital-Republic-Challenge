@@ -7,7 +7,7 @@ async function createNew(cpf, name, password) {
 }
 
 async function findByCPF(cpf) {
-  const result = await connection.execute(`SELECT * FROM users WHERE cpf = ${cpf};`);
+  const result = await connection.execute(`SELECT * FROM accounts WHERE cpf = ${cpf};`);
   return result[0][0];
 };
 
@@ -18,8 +18,15 @@ async function findByCredentials(cpf, password) {
   return result[0][0];
 };
 
+async function deposit(cpf, newAmount) {
+ return connection.execute(
+    `UPDATE accounts SET balance = '${newAmount}' WHERE cpf = '${cpf}';`
+  );
+};
+
 module.exports = {
   createNew,
+  deposit,
   findByCPF,
   findByCredentials,
 };
