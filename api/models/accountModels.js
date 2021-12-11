@@ -12,7 +12,15 @@ async function findByCPF(cpf) {
   return result[0][0];
 };
 
+async function findByCredentials(cpf, password) {
+  const result = await connection.execute(
+    `SELECT * FROM users WHERE cpf = '${cpf}' AND password = '${password}';`
+  );
+  return result[0][0];
+};
+
 module.exports = {
   createNew,
   findByCPF,
+  findByCredentials,
 };

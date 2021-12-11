@@ -20,8 +20,13 @@ async function cpfExists(cpf) {
   if (exists) throw new ValidationException('CPF existente no banco de dados.', StatusCodes.CONFLICT);
 }
 
+async function passwordExists(password) {
+  if (!password) throw new ValidationException('É necessário informar a senha.', StatusCodes.BAD_REQUEST);
+}
+
 module.exports = {
   cpfExists,
   validateCPF,
   validateName,
+  passwordExists,
 }

@@ -1,6 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
-const { createAcc } = require('../services/accountServices');
-const { cpfExists, validateName, validateCPF } = require('../services/validationServices');
+const { createAcc, accountLogin } = require('../services/accountServices');
+const { cpfExists, passwordExists, validateName, validateCPF } = require('../services/validationServices');
 
 async function createNewAccount(req, res, next) {
   try {
@@ -9,8 +9,8 @@ async function createNewAccount(req, res, next) {
     validateCPF(cpf);
     await cpfExists(cpf);
     
-    const verifyAndCreate = await createAcc(cpf, name);
-    return res.status(StatusCodes.CREATED).json(verifyAndCreate);
+    const result = await createAcc(cpf, name);
+    return res.status(StatusCodes.CREATED).json(result);
   } catch (err) {
     next(err);
   }
@@ -18,9 +18,12 @@ async function createNewAccount(req, res, next) {
 
 async function login(req, res, next) {
   try {
+    const { cpf, password } = req.body;
     validateCPF(cpf);
+    passwordExists(password);
+    const result = await accountLogin(cpf, password);
 
-    return res.status(OK).json(validateLogin);
+    return res.status(StatusCodes.OK).json(result);
   } catch (err) {
     next(err);
   }
@@ -28,4 +31,5 @@ async function login(req, res, next) {
 
 module.exports = {
   createNewAccount,
+  login
 }
