@@ -1,9 +1,8 @@
 const connection = require('./connection');
 
-
 async function createNew(cpf, name, password) {
   return connection.execute(
-    `INSERT INTO users (cpf, name, password) VALUES ('${cpf}', '${name}', '${password}');`
+    `INSERT INTO accounts (cpf, name, password) VALUES ('${cpf}', '${name}', '${password}');`
   );
 }
 
@@ -14,7 +13,7 @@ async function findByCPF(cpf) {
 
 async function findByCredentials(cpf, password) {
   const result = await connection.execute(
-    `SELECT * FROM users WHERE cpf = '${cpf}' AND password = '${password}';`
+    `SELECT * FROM accounts WHERE cpf = '${cpf}' AND password = '${password}';`
   );
   return result[0][0];
 };
