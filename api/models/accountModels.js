@@ -18,15 +18,22 @@ async function findByCredentials(cpf, password) {
   return result[0][0];
 };
 
-async function deposit(cpf, newAmount) {
+async function changeBalance(cpf, newAmount) {
  return connection.execute(
     `UPDATE accounts SET balance = '${newAmount}' WHERE cpf = '${cpf}';`
   );
 };
 
+async function findById(id) {
+  const result = await connection.execute(`SELECT * FROM accounts WHERE id = ${id};`);
+  return result[0][0];
+};
+
+
 module.exports = {
+  changeBalance,
   createNew,
-  deposit,
   findByCPF,
   findByCredentials,
+  findById,
 };

@@ -27,15 +27,19 @@ function validateName(name) {
 function validateAmount(amount) {
   if (!amount) throw new ValidationException('É necessário informar o valor.', StatusCodes.BAD_REQUEST);
 
+  if (amount <= 0) throw new ValidationException('Valor inválido.', StatusCodes.BAD_REQUEST);
+}
+
+function validateMaxAmount(amount) {
   const maxValue = 2000;
   if (amount > maxValue) throw new ValidationException('Valor excede o máximo', StatusCodes.BAD_REQUEST);
 }
-
 
 module.exports = {
   cpfExists,
   validateAmount,
   validateCPF,
+  validateMaxAmount,
   validateName,
   passwordExists,
 }

@@ -2,7 +2,13 @@ const randomString = require('randomstring');
 const { generateJWT } = require('./JWTServices');
 const { StatusCodes } = require('http-status-codes');
 const ValidationException = require('../exceptions/validationException');
-const { createNew, deposit, findByCPF, findByCredentials } = require('../models/accountModels');
+const { 
+  createNew,
+  changeBalance,
+  findByCPF,
+  findByCredentials,
+  findById,
+} = require('../models/accountModels');
 
 async function createAcc(cpf, name) {
   const password = randomString.generate({
@@ -11,7 +17,6 @@ async function createAcc(cpf, name) {
   });
 
   await createNew(cpf, name, password);
-  
   return { cpf, name, password };
 }
 
@@ -28,11 +33,27 @@ async function depositAmount(cpf, amount) {
 
   const { balance } = account;
   const newAmount = amount + Number(balance);
-  return deposit(cpf, newAmount);
+  return changeBalance(cpf, newAmount);
 }
+
+async function transferAmount(id, cpf, amount) {
+  const destination = await findByCPF(cpf);
+  if (!destination) throw new ValidationException('Conta inexistente', StatusCodes.NOT_FOUND);
+
+  const { balance, cpf: originCPF } = await findById(id);
+  if (amount > balance) throw new ValidationException('Saldo insuficiente', StatusCodes.BAD_REQUEST);
+  
+  const removeValue = Number(balance) - amount;
+  await changeBalance(originCPF, removeValue);
+
+  const addValue = amount + Number(destination.balance);
+  await changeBalance(cpf, addValue);
+
+};
 
 module.exports = {
   accountLogin,
   createAcc,
   depositAmount,
+  transferAmount,
 }
