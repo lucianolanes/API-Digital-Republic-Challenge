@@ -38,10 +38,10 @@ async function depositAmount(cpf, amount) {
 
 async function transferAmount(id, cpf, amount) {
   const destination = await findByCPF(cpf);
-  if (!destination) throw new ValidationException('Conta inexistente', StatusCodes.NOT_FOUND);
+  if (!destination) throw new ValidationException('Conta inexistente.', StatusCodes.NOT_FOUND);
 
   const { balance, cpf: originCPF } = await findById(id);
-  if (amount > balance) throw new ValidationException('Saldo insuficiente', StatusCodes.BAD_REQUEST);
+  if (amount > balance) throw new ValidationException('Saldo insuficiente.', StatusCodes.BAD_REQUEST);
   
   const removeValue = Number(balance) - amount;
   await changeBalance(originCPF, removeValue);
