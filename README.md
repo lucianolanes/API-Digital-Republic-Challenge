@@ -23,7 +23,7 @@ Este projeto é uma API REST que simula o gerenciamento de contas bancárias, re
 - Para rodar os testes utilize o comando `npm test`.
 
 ## Estrutura
-A API foi estruturada no padrão REST, portanto possui sua organização bem definida com Models, Services, Controllers e Middlewares em suas respectivas pastas, onde: 
+A API foi estruturada no padrão REST e possui sua organização bem definida com Models, Services, Controllers e Middlewares em suas respectivas pastas, onde: 
   - Controller: lida com as requisições, retornando a resposta esperada ou enviando para o middleware de erro;
   - Service: valida as informações enviadas na requisição e permissões;
   - Model: acessa o banco de dados;
