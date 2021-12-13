@@ -44,7 +44,7 @@ Deverá ser enviado no body da requisição um objeto JSON no seguinte formato:
 }
 ```
 
-**Atenção:** Se as informações enviadas forem válidas e a conta for criada com sucesso, será retornado o status HTTP `201` com os dados da conta criada juntamente com a senha necessária para login.
+**Atenção:** Se as informações enviadas forem válidas e a conta for criada com sucesso, será retornado o status HTTP `201` com os dados da conta criada juntamente com uma senha gerada automaticamente que será necessária para o login.
 
 ```json
 {
@@ -95,7 +95,7 @@ Deverá ser enviado no body da requisição um objeto JSON no seguinte formato, 
 
 #### `PUT /account/transfer` - realiza uma transferência da conta bancária do cliente para outra;
 Deverá ser enviado no body da requisição um objeto JSON no seguinte formato, utilizando o CPF vinculado à conta a ser tranferida, juntamente com o valor.
-**Atenção:** Também deverá ser enviado pelo header da requisição, no campo `authorization` o token gerado ao fazer login.
+**Atenção:** Também deverá ser enviado pelo header da requisição, no campo `authorization`, o token gerado ao fazer login.
 
 ```json
 {
