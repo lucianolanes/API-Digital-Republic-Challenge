@@ -22,7 +22,7 @@ Este projeto é uma API REST simulando o gerenciamento de contas bancárias, rea
 
 ## Estrutura
 A API foi estruturada no padrão REST, portanto possui sua organização bem definida com Models, Services, Controllers e Middlewares em suas respectivas pastas, onde: 
-  - Controller: lida com as requisições, retornado a resposta esperada ou enviando para o middleware de erro;
+  - Controller: lida com as requisições, retornando a resposta esperada ou enviando para o middleware de erro;
   - Service: valida as informações enviadas na requisição e permissões;
   - Model: acessa o banco de dados;
   - Middleware: trata os erros e as exceções.
@@ -42,7 +42,7 @@ Deverá ser enviado no body da requisição um objeto JSON no seguinte formato:
 }
 ```
 
-**Atenção:** Se as informações enviadas forem válidas e conta for criada com sucesso, será retornado o status HTTP `201` com os dados da conta criada juntamente com a senha necessária para login.
+**Atenção:** Se as informações enviadas forem válidas e a conta for criada com sucesso, será retornado o status HTTP `201` com os dados da conta criada juntamente com a senha necessária para login.
 
 ```json
 {
@@ -73,7 +73,7 @@ Se as informações enviadas estiverem corretas, forem válidas e o valor não u
 <hr>
 
 #### `POST /account/login` - autentica as informações do cliente e gera um token JWT;
-Deverá ser enviado no body da requisição um objeto JSON no seguinte formato, utilizando o CPF vinculado à conta juntamente com a senha recebida no cadastro:
+Deverá ser enviado no body da requisição um objeto JSON no seguinte formato, utilizando o CPF vinculado à conta do cliente juntamente com a senha recebida no cadastro:
 
 ```json
 {
