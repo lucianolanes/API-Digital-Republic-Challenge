@@ -4,7 +4,7 @@ Este projeto é uma API REST que simula o gerenciamento de contas bancárias, re
 - Node.js
 - Express.js
 - Banco de Dados: MySQL
-- JTW
+- JWT
 - Mocha
 - Chai
 
