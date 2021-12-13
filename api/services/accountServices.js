@@ -29,7 +29,7 @@ async function accountLogin(cpf, password) {
 
 async function depositAmount(cpf, amount) {
   const account = await findByCPF(cpf);
-  if (!account) throw new ValidationException('Conta inexistente', StatusCodes.NOT_FOUND);
+  if (!account) throw new ValidationException('Conta inexistente.', StatusCodes.NOT_FOUND);
 
   const { balance } = account;
   const newAmount = amount + Number(balance);
