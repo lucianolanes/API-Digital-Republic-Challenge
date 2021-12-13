@@ -32,7 +32,7 @@ function validateAmount(amount) {
 
 function validateMaxAmount(amount) {
   const maxValue = 2000;
-  if (amount > maxValue) throw new ValidationException('Valor excede o máximo', StatusCodes.BAD_REQUEST);
+  if (amount > maxValue) throw new ValidationException('Valor excede o máximo.', StatusCodes.BAD_REQUEST);
 }
 
 module.exports = {
