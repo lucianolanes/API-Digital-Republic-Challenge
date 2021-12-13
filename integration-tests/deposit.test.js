@@ -121,7 +121,7 @@ describe('POST /account/deposit', () => {
     before(async () => {
       response = await chai.request(server)
       .post('/account/deposit')
-      .send({ cpf: '52478764075', amount });
+      .send({ cpf: '91426685068', amount });
     });
 
     it('retorna o código de status 404', () => {

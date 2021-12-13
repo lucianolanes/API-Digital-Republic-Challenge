@@ -14,6 +14,6 @@ router.post('/login', login);
 
 router.post('/deposit', deposit);
 
-router.post('/transfer', transfer);
+router.put('/transfer', transfer);
 
 module.exports = router;

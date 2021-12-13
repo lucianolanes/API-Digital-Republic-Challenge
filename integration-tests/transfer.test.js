@@ -25,7 +25,7 @@ const accounts = [
 const acc0 = accounts[0];
 const acc1 = accounts[1];
 
-describe('POST /account/transfer', () => {
+describe('PUT /account/transfer', () => {
   describe('quando a transferência é realizada com sucesso', () => {
     let response = {};
 
@@ -42,7 +42,7 @@ describe('POST /account/transfer', () => {
       .send({ cpf: acc0.cpf, password: acc0.password });
 
       response = await chai.request(server)
-      .post('/account/transfer')
+      .put('/account/transfer')
       .set('authorization', token)
       .send({ cpf: acc1.cpf, amount: acc0.amount });
   });
@@ -75,7 +75,7 @@ describe('POST /account/transfer', () => {
 
     before(async () => {
       response = await chai.request(server)
-      .post('/account/transfer')
+      .put('/account/transfer')
       .send({ cpf: acc1.cpf, amount: acc0.amount });
   });
 
@@ -101,7 +101,7 @@ describe('POST /account/transfer', () => {
 
     before(async () => {
       response = await chai.request(server)
-      .post('/account/transfer')
+      .put('/account/transfer')
       .set('authorization', 'eyJhbGciOiJIUzI1N')
       .send({ cpf: acc1.cpf, amount: acc0.amount });
   });
@@ -134,7 +134,7 @@ describe('POST /account/transfer', () => {
       .send({ cpf: acc0.cpf, password: acc0.password });
 
       response = await chai.request(server)
-      .post('/account/transfer')
+      .put('/account/transfer')
       .set('authorization', token)
       .send({ amount: acc0.amount });
   });
@@ -171,7 +171,7 @@ describe('POST /account/transfer', () => {
       .send({ cpf: acc0.cpf, password: acc0.password });
 
       response = await chai.request(server)
-      .post('/account/transfer')
+      .put('/account/transfer')
       .set('authorization', token)
       .send({ cpf: '01574888022', amount: acc0.amount });
   });
@@ -208,7 +208,7 @@ describe('POST /account/transfer', () => {
       .send({ cpf: acc0.cpf, password: acc0.password });
 
       response = await chai.request(server)
-      .post('/account/transfer')
+      .put('/account/transfer')
       .set('authorization', token)
       .send({ cpf: acc0.cpf });
   });
@@ -245,7 +245,7 @@ describe('POST /account/transfer', () => {
       .send({ cpf: acc0.cpf, password: acc0.password });
 
       response = await chai.request(server)
-      .post('/account/transfer')
+      .put('/account/transfer')
       .set('authorization', token)
       .send({ cpf: acc0.cpf, amount: -200 });
   });
@@ -286,7 +286,7 @@ describe('POST /account/transfer', () => {
       .send({ cpf: acc0.cpf, password: acc0.password });
 
       response = await chai.request(server)
-      .post('/account/transfer')
+      .put('/account/transfer')
       .set('authorization', token)
       .send({ cpf: acc0.cpf, amount: acc0.amount });
   });
@@ -323,7 +323,7 @@ describe('POST /account/transfer', () => {
       .send({ cpf: acc0.cpf, password: acc0.password });
 
       response = await chai.request(server)
-      .post('/account/transfer')
+      .put('/account/transfer')
       .set('authorization', token)
       .send({ cpf: '72883821097', amount: acc0.amount });
   });
