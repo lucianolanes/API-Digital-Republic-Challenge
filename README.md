@@ -1,4 +1,4 @@
-Este projeto é uma API REST simulando o gerenciamento de contas bancárias, realizada para o [Desafio de Back](https://github.com/devdigitalrepublic/donus-code-challenge/blob/master/backend.md) End proposto pela Digital Republic.
+Este projeto é uma API REST simulando o gerenciamento de contas bancárias, realizada para o [Desafio de Back End](https://github.com/devdigitalrepublic/donus-code-challenge/blob/master/backend.md) proposto pela Digital Republic.
 
 ## Ferramentas utilizadas
 - Node.js
@@ -89,6 +89,7 @@ Deverá ser enviado no body da requisição um objeto JSON no seguinte formato, 
   "token": "eyJhbGciOiJIUzI1NiIsInR5cC...."
 }
 ```
+<hr>
 
 #### `PUT /account/transfer` - realiza uma transferência da conta bancária do cliente para outra;
 Deverá ser enviado no body da requisição um objeto JSON no seguinte formato, utilizando o CPF vinculado à conta a ser tranferida, juntamente com o valor.
