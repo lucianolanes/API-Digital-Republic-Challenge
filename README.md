@@ -32,7 +32,7 @@ A API foi estruturada no padrão REST, portanto possui sua organização bem def
 ## Endpoints
 Todos os endpoints por padrão necessitam de um objeto JSON no body da requisição e retornam outro objeto do mesmo formato como resposta. Já para o endpoint que necessita autenticação, além do JSON enviado no body também é necessário o envio do JWT (JSON Web Token) no campo `authorization` pelo header.
 
-Caso haja algum erro ou envio de informações inválidas, sempre será retornada uma mensagem explicativa junto com seu status HTTP referente.
+Caso haja algum erro ou envio de informações inválidas, sempre será retornada uma mensagem explicativa junto com seu respectivo status HTTP.
 
 #### `POST /account/create` - cadastra uma nova conta;
 Deverá ser enviado no body da requisição um objeto JSON no seguinte formato:
