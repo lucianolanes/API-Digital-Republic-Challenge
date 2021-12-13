@@ -16,7 +16,9 @@ Este projeto é uma API REST simulando o gerenciamento de contas bancárias, rea
 
 - Para restaurar o banco de dados: copie todo o conteúdo do arquivo [digitalBank.sql](digitalBank.sql) que se encontra na raiz do projeto, cole no seu Workbench e execute a query. Verifique se foi criado o banco com a tabela vazia 'accounts'. Se não, restaure o banco novamente.
 
-- Para conectar a API e ser possível utilizar os endpoints, no seu terminal execute o comando `npm start`.
+- Para conectar a API e tornar possível utilizar os endpoints, no seu terminal execute o comando `npm start`.
+
+- Para testar as requisições, utilize um API Client como Postman ou Insomnia.
 
 - Para rodar os testes utilize o comando `npm test`.
 
