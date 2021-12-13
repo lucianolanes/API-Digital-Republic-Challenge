@@ -29,10 +29,16 @@ async function findById(id) {
   return result[0][0];
 };
 
+async function deleteAccount(cpf) {
+  const result = await connection.execute(`DELETE FROM accounts WHERE cpf = '${cpf}';`);
+  return result[0][0];
+};
+
 
 module.exports = {
   changeBalance,
   createNew,
+  deleteAccount,
   findByCPF,
   findByCredentials,
   findById,
