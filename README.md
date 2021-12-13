@@ -1,4 +1,4 @@
-Este projeto é uma API REST simulando o gerenciamento de contas bancárias, realizada para o [Desafio de Back End](https://github.com/devdigitalrepublic/donus-code-challenge/blob/master/backend.md) proposto pela Digital Republic.
+Este projeto é uma API REST que simula o gerenciamento de contas bancárias, realizada para o [Desafio de Back End](https://github.com/devdigitalrepublic/donus-code-challenge/blob/master/backend.md) proposto pela Digital Republic.
 
 ## Ferramentas utilizadas
 - Node.js
