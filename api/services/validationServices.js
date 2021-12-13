@@ -5,7 +5,6 @@ const ValidationException = require('../exceptions/validationException');
 
 async function cpfExists(cpf) {
   const exists = await findByCPF(cpf);
-  
   if (exists) throw new ValidationException('CPF existente no banco de dados.', StatusCodes.CONFLICT);
 }
 

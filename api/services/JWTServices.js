@@ -10,7 +10,6 @@ function generateJWT(id, name) {
     expiresIn: '20m',
     algorithm: 'HS256',
   };
-
   const PAYLOAD = { id, name };
   const token = jwt.sign(PAYLOAD, SECRET, CONFIG);
 
