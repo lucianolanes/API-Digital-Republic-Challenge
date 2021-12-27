@@ -2,13 +2,13 @@ const randomString = require('randomstring');
 const { generateJWT } = require('./JWTServices');
 const { StatusCodes } = require('http-status-codes');
 const ValidationException = require('../exceptions/validationException');
-const { 
+const {
+  transfer,
   createNew,
   changeBalance,
   findByCPF,
   findByCredentials,
   findById,
-  transfer,
 } = require('../models/accountModels');
 
 async function createAcc(cpf, name) {

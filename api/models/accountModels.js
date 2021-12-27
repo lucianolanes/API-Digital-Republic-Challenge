@@ -48,11 +48,11 @@ async function transfer(cpfOrigin, balanceOrigin, cpfDest, balanceDest) {
 
 
 module.exports = {
+  transfer,
   changeBalance,
   createNew,
   deleteAccount,
   findByCPF,
   findByCredentials,
   findById,
-  transfer,
 };
