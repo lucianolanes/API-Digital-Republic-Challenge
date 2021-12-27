@@ -1,12 +1,12 @@
 Este projeto é uma API REST que simula o gerenciamento de contas bancárias, realizada para o [Desafio de Back End](https://github.com/devdigitalrepublic/donus-code-challenge/blob/master/backend.md) proposto pela Digital Republic.
 
 ## Ferramentas utilizadas
-- Node.js
-- Express.js
+- Node.js vers. 16.11.12
+- Express.js vers. 4.17.1
+- Mocha vers. 9.1.3
+- Chai vers. 4.3.0
 - Banco de Dados: MySQL
 - JWT
-- Mocha
-- Chai
 
 ## Preparando o ambiente
 
@@ -14,11 +14,9 @@ Este projeto é uma API REST que simula o gerenciamento de contas bancárias, re
 
 - Faça uma cópia do arquivo `.env.example`, criando um arquivo `.env` com a porta a ser utilizada, as suas credenciais SQL e um segredo da sua escolha para ser utilizado na criação e validação do JWT;
 
-- Para restaurar o banco de dados: copie todo o conteúdo do arquivo [digitalBank.sql](digitalBank.sql) que se encontra na raiz do projeto, cole no seu Workbench e execute a query. Verifique se foi criado o banco com a tabela vazia 'accounts'. Se não, restaure o banco novamente.
+- Para restaurar o banco de dados: copie todo o conteúdo do arquivo [digitalBank.sql](digitalBank.sql) que se encontra na raiz do projeto e execute a query na ferramenta que você utiliza para gerenciar seu banco de dados SQL. Verifique se foi criado o banco com a tabela vazia 'accounts'. Se não, restaure o banco novamente.
 
 - Para conectar a API e tornar possível utilizar os endpoints, no seu terminal execute o comando `npm start`.
-
-- Para testar as requisições, utilize um API Client como Postman ou Insomnia.
 
 - Para rodar os testes utilize o comando `npm test`.
 
