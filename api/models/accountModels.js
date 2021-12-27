@@ -34,6 +34,18 @@ async function deleteAccount(cpf) {
   return result[0][0];
 };
 
+async function transfer(cpfOrigin, balanceOrigin, cpfDest, balanceDest) {
+  try {
+    await connection.query('START TRANSACTION');
+    await connection.query(`UPDATE accounts SET balance = '${balanceOrigin}' WHERE cpf = '${cpfOrigin}'`);
+    await connection.query(`UPDATE accounts SET balance = '${balanceDest}' WHERE cpf = '${cpfDest}'`);
+    await connection.query('COMMIT');
+  } catch(error) {
+    await connection.query('ROLLBACK');
+    throw error;
+  }
+}
+
 
 module.exports = {
   changeBalance,
@@ -42,4 +54,5 @@ module.exports = {
   findByCPF,
   findByCredentials,
   findById,
+  transfer,
 };

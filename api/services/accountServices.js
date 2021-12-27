@@ -8,6 +8,7 @@ const {
   findByCPF,
   findByCredentials,
   findById,
+  transfer,
 } = require('../models/accountModels');
 
 async function createAcc(cpf, name) {
@@ -44,10 +45,9 @@ async function transferAmount(id, cpf, amount) {
   if (amount > balance) throw new ValidationException('Saldo insuficiente.', StatusCodes.BAD_REQUEST);
   
   const removeValue = Number(balance) - amount;
-  await changeBalance(originCPF, removeValue);
-
   const addValue = amount + Number(destination.balance);
-  await changeBalance(cpf, addValue);
+
+  return transfer(originCPF, removeValue, cpf, addValue);
 
 };
 
